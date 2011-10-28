@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>Removing IP Address Aliases</key>
+	<string>Removing IP Address Aliases</string>
+	<key>Setting IP Address Aliases</key>
+	<string>Setting IP Address Aliases</string>
+</dict>
+</plist>

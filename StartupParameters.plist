@@ -1,0 +1,11 @@
+{
+	Description     = "Network IP Address Aliases";
+	Provides        = ("NetworkAliases");
+	Requires        = ("Network");
+	OrderPreference = "None";
+	Messages =  {
+		restart = "Resetting IP Address Aliases";
+		start = "Setting IP Address Aliases";
+		stop = "Removing IP Address Aliases";
+	};
+}

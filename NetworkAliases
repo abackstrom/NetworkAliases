@@ -1,0 +1,34 @@
+#!/bin/sh
+# 
+# Douglas Fields, 1/21/2005
+# http://hints.macworld.com/article.php?story=2005012202111996
+#
+# Shell script to set IP address aliases on the Ethernet when safe.
+#
+# TODO: Just have a configuration file with the necessary aliases
+# and what interface to use, and write a script which will remove
+# all aliases whatever they are from the setting, even if they
+# changed in the file (possibly store a "current aliases file"
+# somewhere).
+#
+# SystemStarter start NetworkAliases
+# SystemStarter restart NetworkAliases
+# SystemStarter stop NetworkAliases
+
+# Load defaults
+. /etc/rc.common
+
+if [ ${1:-noset} == "stop" ] || [ ${1:-noset} == "restart" ]; then
+
+	ConsoleMessage "Removing IP Address Aliases"
+	/sbin/ifconfig lo0 -alias 127.0.0.2
+
+	if [ ${1:-noset} = "stop" ]; then
+		exit 0
+	fi
+fi
+
+# Otherwise, we're either a "start" or a "restart"
+ConsoleMessage "Setting IP Address Aliases"
+/sbin/ifconfig lo0 alias 127.0.0.2
+exit 0
